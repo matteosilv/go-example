@@ -1,0 +1,12 @@
+version: "3.5"
+services: 
+  user:
+    image: dockerhub.eidosmedia.com/go-example-user
+    deploy:
+      replicas: 2
+  hello:
+    image: dockerhub.eidosmedia.com/go-example-hello
+    ports: 
+      - 3000:3000
+    environment:
+      USER_SERVICE: "http://user:3000"
